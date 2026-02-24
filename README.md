@@ -1,7 +1,7 @@
 # Vijay Harish Sundar — Portfolio Website
 
-Personal portfolio and thought leadership platform for Vijay Harish Sundar — 
-SC Cleared QA Test Lead, ISTQB® CT-GenAI Certified AI Testing Specialist, 
+Personal portfolio and thought leadership platform for Vijay Harish Sundar —
+SC Cleared QA Test Lead, ISTQB® CT-GenAI Certified AI Testing Specialist,
 and AI Governance Professional (AIGP) candidate based in London, UK.
 
 ## 🌐 Live Site
