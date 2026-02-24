@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Vijay Harish Sundar · QA Test Lead & AI Testing Specialist</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<style>
+  :root {
+    --ink: #0d0d14;
+    --paper: #f5f3ee;
+    --accent: #c8460a;
+    --accent2: #1b4f8a;
+    --mid: #6b6760;
+    --light: #e8e4dc;
+    --card: #ffffff;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.2rem 3rem;
+    background: rgba(245,243,238,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--light);
+  }
+  .nav-logo { font-family: 'DM Serif Display', serif; font-size: 1.15rem; color: var(--ink); text-decoration: none; letter-spacing: -0.01em; }
+  .nav-links { display: flex; gap: 2rem; list-style: none; }
+  .nav-links a { font-size: 0.85rem; font-weight: 500; text-decoration: none; color: var(--mid); letter-spacing: 0.04em; text-transform: uppercase; transition: color 0.2s; }
+  .nav-links a:hover { color: var(--accent); }
+  .hero { min-height: 100vh; display: grid; grid-template-columns: 1fr 1fr; align-items: center; padding: 8rem 3rem 4rem; gap: 4rem; position: relative; overflow: hidden; }
+  .hero::before { content: ''; position: absolute; top: -20%; right: -10%; width: 55vw; height: 55vw; border-radius: 50%; background: radial-gradient(circle, rgba(200,70,10,0.06) 0%, transparent 70%); pointer-events: none; }
+  .hero-label { font-family: 'JetBrains Mono', monospace; font-size: 0.72rem; letter-spacing: 0.12em; color: var(--accent); text-transform: uppercase; margin-bottom: 1.4rem; display: flex; align-items: center; gap: 0.6rem; }
+  .hero-label::before { content: ''; display: inline-block; width: 2rem; height: 1px; background: var(--accent); }
+  .hero h1 { font-family: 'DM Serif Display', serif; font-size: clamp(3rem, 5vw, 5.5rem); line-height: 1.05; letter-spacing: -0.02em; color: var(--ink); margin-bottom: 1.6rem; }
+  .hero h1 em { font-style: italic; color: var(--accent); }
+  .hero-desc { font-size: 1.05rem; color: var(--mid); max-width: 42ch; margin-bottom: 2.5rem; line-height: 1.75; }
+  .hero-badges { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-bottom: 2.5rem; }
+  .badge { display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.35rem 0.9rem; border: 1px solid var(--light); border-radius: 100px; font-size: 0.78rem; font-weight: 500; color: var(--ink); background: var(--card); }
+  .badge.accent { background: var(--accent); color: white; border-color: var(--accent); }
+  .badge.accent2 { background: var(--accent2); color: white; border-color: var(--accent2); }
+  .hero-cta { display: flex; gap: 1rem; flex-wrap: wrap; }
+  .btn { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.85rem 2rem; border-radius: 6px; font-size: 0.88rem; font-weight: 500; text-decoration: none; transition: all 0.22s; cursor: pointer; border: none; }
+  .btn-primary { background: var(--ink); color: var(--paper); }
+  .btn-primary:hover { background: var(--accent); transform: translateY(-2px); }
+  .btn-outline { background: transparent; color: var(--ink); border: 1.5px solid var(--ink); }
+  .btn-outline:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-2px); }
+  .hero-right { display: flex; flex-direction: column; gap: 1.5rem; }
+  .stat-card { background: var(--card); border: 1px solid var(--light); border-radius: 12px; padding: 1.6rem; position: relative; overflow: hidden; animation: fadeUp 0.6s ease both; }
+  .stat-card:nth-child(1) { animation-delay: 0.1s; }
+  .stat-card:nth-child(2) { animation-delay: 0.22s; }
+  .stat-card:nth-child(3) { animation-delay: 0.34s; }
+  .stat-card::after { content: ''; position: absolute; bottom: 0; left: 0; width: 3px; height: 60%; background: var(--accent); border-radius: 0 3px 3px 0; }
+  .stat-num { font-family: 'DM Serif Display', serif; font-size: 2.8rem; line-height: 1; color: var(--ink); margin-bottom: 0.3rem; }
+  .stat-label { font-size: 0.82rem; color: var(--mid); font-weight: 500; }
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
+  section { padding: 6rem 3rem; }
+  .section-label { font-family: 'JetBrains Mono', monospace; font-size: 0.72rem; letter-spacing: 0.12em; color: var(--accent); text-transform: uppercase; margin-bottom: 0.8rem; display: flex; align-items: center; gap: 0.6rem; }
+  .section-label::before { content: ''; display: inline-block; width: 2rem; height: 1px; background: var(--accent); }
+  .section-title { font-family: 'DM Serif Display', serif; font-size: clamp(2rem, 3.5vw, 3rem); line-height: 1.12; letter-spacing: -0.02em; margin-bottom: 3rem; color: var(--ink); }
+  .about { background: var(--ink); color: var(--paper); }
+  .about .section-label { color: var(--accent); }
+  .about .section-title { color: var(--paper); }
+  .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
+  .about-text p { color: rgba(245,243,238,0.75); margin-bottom: 1.2rem; font-size: 1.02rem; line-height: 1.8; }
+  .about-text p strong { color: var(--paper); font-weight: 500; }
+  .skills-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.8rem; }
+  .skill-item { padding: 0.9rem 1.1rem; border: 1px solid rgba(245,243,238,0.12); border-radius: 8px; font-size: 0.82rem; font-weight: 500; color: rgba(245,243,238,0.85); display: flex; align-items: center; gap: 0.5rem; }
+  .skill-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); flex-shrink: 0; }
+  .experience { background: var(--paper); }
+  .timeline { position: relative; }
+  .timeline::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 1px; background: var(--light); }
+  .timeline-item { padding-left: 2.5rem; margin-bottom: 3rem; position: relative; }
+  .timeline-item::before { content: ''; position: absolute; left: -4px; top: 0.5rem; width: 9px; height: 9px; border-radius: 50%; background: var(--accent); }
+  .timeline-date { font-family: 'JetBrains Mono', monospace; font-size: 0.72rem; color: var(--accent); letter-spacing: 0.06em; margin-bottom: 0.4rem; }
+  .timeline-role { font-family: 'DM Serif Display', serif; font-size: 1.35rem; color: var(--ink); margin-bottom: 0.2rem; }
+  .timeline-org { font-size: 0.88rem; font-weight: 500; color: var(--mid); margin-bottom: 0.9rem; }
+  .timeline-desc { font-size: 0.92rem; color: var(--mid); line-height: 1.75; }
+  .certifications { background: var(--light); }
+  .certs-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.2rem; }
+  .cert-card { background: var(--card); border: 1px solid var(--light); border-radius: 12px; padding: 1.6rem; transition: transform 0.2s, box-shadow 0.2s; }
+  .cert-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(0,0,0,0.08); }
+  .cert-icon { font-size: 1.8rem; margin-bottom: 0.8rem; }
+  .cert-name { font-weight: 600; font-size: 0.92rem; color: var(--ink); margin-bottom: 0.3rem; }
+  .cert-body { font-size: 0.8rem; color: var(--mid); margin-bottom: 0.6rem; }
+  .cert-year { font-family: 'JetBrains Mono', monospace; font-size: 0.72rem; color: var(--accent); }
+  .blog { background: var(--paper); }
+  .blog-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 1.8rem; }
+  .blog-card { background: var(--card); border: 1px solid var(--light); border-radius: 14px; overflow: hidden; cursor: pointer; transition: transform 0.22s, box-shadow 0.22s; display: flex; flex-direction: column; }
+  .blog-card:hover { transform: translateY(-6px); box-shadow: 0 16px 48px rgba(0,0,0,0.1); }
+  .blog-card-top { padding: 1.8rem 1.8rem 1rem; flex: 1; }
+  .blog-tag { display: inline-block; padding: 0.25rem 0.7rem; border-radius: 100px; font-size: 0.7rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 1rem; }
+  .tag-ai { background: rgba(200,70,10,0.1); color: var(--accent); }
+  .tag-av { background: rgba(27,79,138,0.1); color: var(--accent2); }
+  .tag-gov { background: rgba(13,13,20,0.08); color: var(--ink); }
+  .tag-qa { background: rgba(100,150,50,0.1); color: #3a7a1a; }
+  .blog-card h3 { font-family: 'DM Serif Display', serif; font-size: 1.25rem; line-height: 1.3; color: var(--ink); margin-bottom: 0.8rem; letter-spacing: -0.01em; }
+  .blog-card p { font-size: 0.88rem; color: var(--mid); line-height: 1.7; }
+  .blog-card-footer { padding: 1rem 1.8rem 1.4rem; display: flex; align-items: center; justify-content: space-between; border-top: 1px solid var(--light); }
+  .blog-date { font-family: 'JetBrains Mono', monospace; font-size: 0.72rem; color: var(--mid); }
+  .blog-read { font-size: 0.78rem; font-weight: 600; color: var(--accent); text-decoration: none; display: flex; align-items: center; gap: 0.3rem; }
+  .modal-overlay { position: fixed; inset: 0; background: rgba(13,13,20,0.7); backdrop-filter: blur(8px); z-index: 200; display: flex; align-items: center; justify-content: center; padding: 2rem; opacity: 0; pointer-events: none; transition: opacity 0.25s; }
+  .modal-overlay.open { opacity: 1; pointer-events: all; }
+  .modal { background: var(--card); border-radius: 16px; max-width: 680px; width: 100%; max-height: 85vh; overflow-y: auto; padding: 3rem; position: relative; transform: scale(0.95); transition: transform 0.25s; }
+  .modal-overlay.open .modal { transform: scale(1); }
+  .modal-close { position: absolute; top: 1.2rem; right: 1.2rem; background: var(--light); border: none; width: 36px; height: 36px; border-radius: 50%; font-size: 1.1rem; cursor: pointer; display: flex; align-items: center; justify-content: center; color: var(--ink); transition: background 0.2s; }
+  .modal-close:hover { background: var(--accent); color: white; }
+  .modal-tag { margin-bottom: 1rem; }
+  .modal h2 { font-family: 'DM Serif Display', serif; font-size: 1.8rem; line-height: 1.2; color: var(--ink); margin-bottom: 0.5rem; letter-spacing: -0.02em; }
+  .modal-meta { font-family: 'JetBrains Mono', monospace; font-size: 0.72rem; color: var(--mid); margin-bottom: 1.8rem; }
+  .modal-body p { color: var(--mid); font-size: 0.97rem; line-height: 1.82; margin-bottom: 1.2rem; }
+  .modal-body p strong { color: var(--ink); font-weight: 500; }
+  .modal-body blockquote { border-left: 3px solid var(--accent); padding-left: 1.2rem; margin: 1.5rem 0; color: var(--mid); font-style: italic; }
+  .modal-hashtags { margin-top: 1.8rem; display: flex; flex-wrap: wrap; gap: 0.5rem; }
+  .hashtag { font-family: 'JetBrains Mono', monospace; font-size: 0.72rem; color: var(--accent2); }
+  .contact { background: var(--ink); color: var(--paper); text-align: center; }
+  .contact .section-title { color: var(--paper); }
+  .contact .section-label { color: var(--accent); justify-content: center; }
+  .contact .section-label::before { display: none; }
+  .contact-desc { color: rgba(245,243,238,0.6); max-width: 46ch; margin: 0 auto 2.5rem; font-size: 1rem; }
+  .contact-links { display: flex; justify-content: center; gap: 1.2rem; flex-wrap: wrap; margin-bottom: 3rem; }
+  .contact-link { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.85rem 1.8rem; border: 1px solid rgba(245,243,238,0.2); border-radius: 8px; color: var(--paper); text-decoration: none; font-size: 0.88rem; font-weight: 500; transition: all 0.22s; }
+  .contact-link:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-2px); }
+  footer { background: var(--ink); border-top: 1px solid rgba(245,243,238,0.08); padding: 2rem 3rem; text-align: center; font-size: 0.78rem; color: rgba(245,243,238,0.3); }
+  @media (max-width: 768px) {
+    nav { padding: 1rem 1.5rem; }
+    .nav-links { display: none; }
+    .hero { grid-template-columns: 1fr; padding: 7rem 1.5rem 3rem; }
+    .hero-right { display: none; }
+    section { padding: 4rem 1.5rem; }
+    .about-grid { grid-template-columns: 1fr; gap: 2rem; }
+    .skills-grid { grid-template-columns: 1fr; }
+    .blog-grid { grid-template-columns: 1fr; }
+  }
+  .reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.6s ease, transform 0.6s ease; }
+  .reveal.visible { opacity: 1; transform: none; }
+</style>
+</head>
+<body>
+<nav>
+  <a href="#" class="nav-logo">VHS</a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#certifications">Credentials</a></li>
+    <li><a href="#blog">Articles</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<section class="hero" id="home">
+  <div class="hero-left">
+    <div class="hero-label">QA Test Lead · AI Testing Specialist</div>
+    <h1>Vijay<br/>Harish<br/><em>Sundar</em></h1>
+    <p class="hero-desc">SC Cleared quality assurance leader with 10+ years protecting mission-critical systems — and one of the UK's first ISTQB®-certified AI Testing Specialists transitioning into AI governance and responsible AI practice.</p>
+    <div class="hero-badges">
+      <span class="badge accent">✓ SC Cleared</span>
+      <span class="badge accent2">ISTQB® CT-GenAI</span>
+      <span class="badge">Bank of England</span>
+      <span class="badge">Hinkley Point C</span>
+      <span class="badge">AIGP Candidate</span>
+    </div>
+    <div class="hero-cta">
+      <a href="#blog" class="btn btn-primary">Read My Articles ↓</a>
+      <a href="#contact" class="btn btn-outline">Get In Touch</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="stat-card"><div class="stat-num">10+</div><div class="stat-label">Years delivering QA across safety-critical sectors</div></div>
+    <div class="stat-card"><div class="stat-num">12+</div><div class="stat-label">Interdependent banking systems managed at Bank of England</div></div>
+    <div class="stat-card"><div class="stat-num">100+</div><div class="stat-label">Staff across QA governance frameworks I designed</div></div>
+  </div>
+</section>
+
+<section class="about" id="about">
+  <div class="section-label">About</div>
+  <div class="about-grid">
+    <div class="about-text">
+      <div class="section-title">Quality isn't a phase.<br/>It's a <em style="font-style:italic;color:var(--accent)">culture.</em></div>
+      <p>I'm a <strong>QA Test Lead and ISTQB®-certified AI Testing Specialist</strong> trusted by some of the UK's most regulated organisations — the Bank of England, EDF Energy (Hinkley Point C), Vodafone, and Cognizant — to protect programmes where an assurance failure carries systemic consequences.</p>
+      <p>My career has spanned nuclear infrastructure, real-time financial settlement, and telecoms — environments where quality isn't a checklist, it's a safeguard. I design governance frameworks, not just test plans.</p>
+      <p>Now I'm building on that foundation to transition into <strong>AI Governance and Responsible AI practice</strong> — pursuing the AIGP certification and applying 10+ years of model-risk thinking to the AI era.</p>
+    </div>
+    <div>
+      <p style="color:rgba(245,243,238,0.5);font-size:0.8rem;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:1.2rem;font-family:'JetBrains Mono',monospace;">Core Competencies</p>
+      <div class="skills-grid">
+        <div class="skill-item"><div class="skill-dot"></div>AI / GenAI Testing</div>
+        <div class="skill-item"><div class="skill-dot"></div>LLM & SLM Validation</div>
+        <div class="skill-item"><div class="skill-dot"></div>AI Governance & Risk</div>
+        <div class="skill-item"><div class="skill-dot"></div>Responsible AI</div>
+        <div class="skill-item"><div class="skill-dot"></div>QA Governance & Strategy</div>
+        <div class="skill-item"><div class="skill-dot"></div>Safety-Critical QA</div>
+        <div class="skill-item"><div class="skill-dot"></div>ISO 20022 / CHAPS</div>
+        <div class="skill-item"><div class="skill-dot"></div>Test Automation</div>
+        <div class="skill-item"><div class="skill-dot"></div>API & SQL Testing</div>
+        <div class="skill-item"><div class="skill-dot"></div>Regulatory Compliance</div>
+        <div class="skill-item"><div class="skill-dot"></div>Scaled Agile / SAFe</div>
+        <div class="skill-item"><div class="skill-dot"></div>Stakeholder Management</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="experience" id="experience">
+  <div class="section-label">Career</div>
+  <div class="section-title">Where I've<br/>Made an Impact</div>
+  <div class="timeline">
+    <div class="timeline-item">
+      <div class="timeline-date">OCT 2022 – PRESENT</div>
+      <div class="timeline-role">QA Test Lead</div>
+      <div class="timeline-org">Bank of England · London (Contract)</div>
+      <div class="timeline-desc">Leading QA delivery for the ISO 20022 migration of CHAPS — the UK's real-time gross settlement system. Architected QA governance frameworks adopted by 100+ staff across 12+ interdependent banking systems.</div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-date">JAN 2021 – OCT 2022</div>
+      <div class="timeline-role">Technical Test Lead</div>
+      <div class="timeline-org">EDF Energy – Hinkley Point C · Bristol (Contract)</div>
+      <div class="timeline-desc">Led QA for safety-critical systems on the UK's largest infrastructure project. Designed test strategies where rigour directly underpins public safety and regulatory licensing.</div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-date">APR 2017 – DEC 2020</div>
+      <div class="timeline-role">Senior Software Engineer – QA</div>
+      <div class="timeline-org">Vodafone · Newbury (Contract)</div>
+      <div class="timeline-desc">Delivered functional and non-functional QA for high-availability telecoms platforms serving millions of customers.</div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-date">APR 2017 – OCT 2022</div>
+      <div class="timeline-role">QA Test Lead</div>
+      <div class="timeline-org">Capgemini Engineering · Newbury</div>
+      <div class="timeline-desc">Orchestrated test planning, defect lifecycle management and end-to-end assurance across large-scale engineering programmes in Agile and Waterfall frameworks.</div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-date">FEB 2014 – JAN 2017</div>
+      <div class="timeline-role">Network Engineer</div>
+      <div class="timeline-org">Birla Power Solutions · Bangalore</div>
+      <div class="timeline-desc">Ensured integrity of system models and network infrastructure through structured QA across critical power distribution systems.</div>
+    </div>
+  </div>
+</section>
+
+<section class="certifications" id="certifications">
+  <div class="section-label">Credentials</div>
+  <div class="section-title">Certified.<br/>Cleared. Ready.</div>
+  <div class="certs-grid">
+    <div class="cert-card"><div class="cert-icon">🤖</div><div class="cert-name">ISTQB® CT-GenAI</div><div class="cert-body">Certified Tester – Testing with Generative AI. One of the UK's first holders.</div><div class="cert-year">ISTQB® · 2026</div></div>
+    <div class="cert-card"><div class="cert-icon">🎓</div><div class="cert-name">ISTQB® CTFL</div><div class="cert-body">Certified Tester – Foundation Level from the UK & Ireland Testing Board.</div><div class="cert-year">UKTB · 2020</div></div>
+    <div class="cert-card"><div class="cert-icon">⚙️</div><div class="cert-name">Eggplant Functional</div><div class="cert-body">Foundation & Practitioner Levels — AI-driven functional test automation.</div><div class="cert-year">Keysight · 2022</div></div>
+    <div class="cert-card"><div class="cert-icon">🧠</div><div class="cert-name">EggplantAI Practitioner</div><div class="cert-body">AI-driven test automation using machine learning for intelligent test execution.</div><div class="cert-year">Keysight · 2022</div></div>
+    <div class="cert-card"><div class="cert-icon">🔒</div><div class="cert-name">SC Cleared (Active)</div><div class="cert-body">Active UK Security Clearance for sensitive and classified government programmes.</div><div class="cert-year">Active</div></div>
+    <div class="cert-card"><div class="cert-icon">📋</div><div class="cert-name">AIGP (In Progress)</div><div class="cert-body">AI Governance Professional — responsible AI frameworks, policy, and risk oversight.</div><div class="cert-year">Pursuing · 2025</div></div>
+  </div>
+</section>
+
+<section class="blog" id="blog">
+  <div class="section-label">Thought Leadership</div>
+  <div class="section-title">Articles &<br/>Perspectives</div>
+  <div class="blog-grid">
+    <div class="blog-card" onclick="openModal('post1')">
+      <div class="blog-card-top">
+        <span class="blog-tag tag-ai">AI Governance</span>
+        <h3>The Post Office Horizon Scandal: A Warning for the AI Age</h3>
+        <p>Technology was trusted. Outputs were assumed correct. Governance mechanisms were weak. Who challenges the model when it's wrong?</p>
+      </div>
+      <div class="blog-card-footer"><span class="blog-date">Feb 2025</span><a class="blog-read" href="#" onclick="openModal('post1');return false;">Read more →</a></div>
+    </div>
+    <div class="blog-card" onclick="openModal('post2')">
+      <div class="blog-card-top">
+        <span class="blog-tag tag-av">Autonomous Vehicles</span>
+        <h3>Waymo Comes to London: A Tester's Edge-Case Thinking</h3>
+        <p>What happens if a mechanical component fails during a ride? As software testers, we're trained to imagine failure before it happens.</p>
+      </div>
+      <div class="blog-card-footer"><span class="blog-date">Feb 2025</span><a class="blog-read" href="#" onclick="openModal('post2');return false;">Read more →</a></div>
+    </div>
+    <div class="blog-card" onclick="openModal('post3')">
+      <div class="blog-card-top">
+        <span class="blog-tag tag-gov">AI Policy</span>
+        <h3>Why the UK Needs AI Governance Professionals — Not Just AI Developers</h3>
+        <p>Every major technology wave generates two needs: builders and overseers. The governance layer is chronically understaffed.</p>
+      </div>
+      <div class="blog-card-footer"><span class="blog-date">Jan 2025</span><a class="blog-read" href="#" onclick="openModal('post3');return false;">Read more →</a></div>
+    </div>
+    <div class="blog-card" onclick="openModal('post4')">
+      <div class="blog-card-top">
+        <span class="blog-tag tag-ai">Career & AI Strategy</span>
+        <h3>From QA Test Lead to AI Governance Professional: My Career Transition Thesis</h3>
+        <p>After 10 years safeguarding safety-critical systems, I've realised my career has been preparation for the AI governance challenge.</p>
+      </div>
+      <div class="blog-card-footer"><span class="blog-date">Jan 2025</span><a class="blog-read" href="#" onclick="openModal('post4');return false;">Read more →</a></div>
+    </div>
+    <div class="blog-card" onclick="openModal('post5')">
+      <div class="blog-card-top">
+        <span class="blog-tag tag-qa">AI Testing</span>
+        <h3>LLM Validation Is Not Like Any Testing You've Done Before</h3>
+        <p>Traditional software testing assumes determinism. Large Language Models break that assumption entirely.</p>
+      </div>
+      <div class="blog-card-footer"><span class="blog-date">Dec 2024</span><a class="blog-read" href="#" onclick="openModal('post5');return false;">Read more →</a></div>
+    </div>
+    <div class="blog-card" onclick="openModal('post6')">
+      <div class="blog-card-top">
+        <span class="blog-tag tag-gov">Model Risk</span>
+        <h3>Financial Regulators Are Coming for AI — Are Banks Ready?</h3>
+        <p>From inside the Bank of England, I have a front-row view of how financial institutions approach model risk. AI is about to redefine it.</p>
+      </div>
+      <div class="blog-card-footer"><span class="blog-date">Dec 2024</span><a class="blog-read" href="#" onclick="openModal('post6');return false;">Read more →</a></div>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="section-label">Contact</div>
+  <div class="section-title">Let's talk quality,<br/><em style="font-style:italic">AI governance</em>, and risk.</div>
+  <p class="contact-desc">Available for senior QA, AI testing, and AI governance roles in the UK. SC Cleared and based in London.</p>
+  <div class="contact-links">
+    <a href="mailto:vijayharishsundar@hotmail.com" class="contact-link">✉ vijayharishsundar@hotmail.com</a>
+    <a href="tel:07557865193" class="contact-link">📞 07557 865193</a>
+    <a href="https://uk.linkedin.com/in/vijayharishsundar" target="_blank" class="contact-link">🔗 LinkedIn</a>
+  </div>
+</section>
+
+<footer>© 2025 Vijay Harish Sundar · QA Test Lead & AI Testing Specialist · London, UK</footer>
+
+<div class="modal-overlay" id="modal-overlay" onclick="closeModalOnOverlay(event)">
+  <div class="modal" id="modal-content">
+    <button class="modal-close" onclick="closeModal()">✕</button>
+    <div id="modal-inner"></div>
+  </div>
+</div>
+
+<script>
+const posts = {
+  post1: {
+    tag: 'tag-ai', tagLabel: 'AI Governance', date: 'February 2025',
+    title: 'The Post Office Horizon Scandal: A Warning for the AI Age',
+    body: `<p>When the UK Post Office used the Horizon IT system, hundreds of sub-postmasters were wrongly accused due to system errors. It wasn't labelled "AI" at the time. But the lesson is deeply relevant to today's AI systems.</p><blockquote>Technology was trusted. Outputs were assumed correct. Governance and challenge mechanisms were weak. The result? Human lives were impacted.</blockquote><p>As the UK accelerates AI adoption across public services and financial institutions, the real question isn't: <strong>"Can the model automate this?"</strong></p><p>It's: <strong>"Who challenges the model when it's wrong?"</strong></p><p>AI governance is not about slowing innovation. It's about preventing blind trust in automated decisions. The Horizon scandal unfolded over years, partly because the system's outputs were treated as infallible — and there was no culture of challenge, no independent audit mechanism, no meaningful escalation path for those affected.</p><p>We are building AI systems today that will make decisions about credit, benefits, healthcare triage, criminal risk assessment, and hiring — often with limited human review. The stakes are not hypothetical.</p><p>The more autonomous systems become, the stronger oversight must be. A model that cannot be challenged is not a tool — it's a verdict.</p><p><strong>1. Auditability is non-negotiable.</strong> Every material automated decision must leave a trail that a non-technical human can interrogate.</p><p><strong>2. Challenge culture must be embedded.</strong> Governance frameworks should actively invite challenges to model outputs.</p><p><strong>3. Accountability must be human.</strong> When AI causes harm, someone must be responsible. "The model decided" cannot be an acceptable answer.</p>`,
+    hashtags: '#AIGovernance #ResponsibleAI #UKTech #ModelRisk #PublicSector'
+  },
+  post2: {
+    tag: 'tag-av', tagLabel: 'Autonomous Vehicles', date: 'February 2025',
+    title: "Waymo Comes to London: A Tester's Edge-Case Thinking",
+    body: `<p>Over the past few days, I've been thinking about autonomous vehicles — and specifically Waymo coming to London roads — and how they handle edge cases.</p><p>As a software tester (not from the automotive industry), my mind naturally goes to failure scenarios.</p><p><strong>What happens if a mechanical component like a headlight fails during a ride?</strong></p><p>What if the failure detection system also fails? What if it's a dark road, and a child or animal suddenly runs across?</p><p>This isn't about doubting the technology. It's about understanding how layered safety works in real-world systems.</p><blockquote>Autonomous vehicles don't rely on headlights to "see." They use LiDAR, radar, and advanced perception systems that work even in total darkness.</blockquote><p>But as testers, we're trained to ask:</p><p>— What if one system fails?<br/>— What if two independent systems fail?<br/>— What if unpredictability meets degraded mode?<br/>— Where is the single point of failure — and has it truly been eliminated?</p><p>Modern safety engineering is built on redundancy, fail-safe design, and graceful degradation. No single component should create catastrophic risk.</p><p>Innovation moves fast — but thoughtful questioning is part of responsible engineering. As testers, our job isn't to assume failure — it's to imagine it before it happens.</p>`,
+    hashtags: '#AutonomousVehicles #SoftwareTesting #SafetyEngineering #QualityAssurance #TechEthics'
+  },
+  post3: {
+    tag: 'tag-gov', tagLabel: 'AI Policy', date: 'January 2025',
+    title: 'Why the UK Needs AI Governance Professionals — Not Just AI Developers',
+    body: `<p>Every major technology wave generates two distinct needs: <strong>builders</strong> and <strong>overseers</strong>.</p><p>The internet needed security professionals. Healthcare IT needed clinical informatics and compliance officers. Financial technology needed model risk managers. AI needs governance specialists who understand both the technology and the regulatory and ethical landscape.</p><p>Right now, the UK is at an inflection point. The AI Safety Institute is active. The ICO is issuing guidance on AI and data protection. The FCA is consulting on AI governance in financial services. The NHS is piloting AI diagnostic tools.</p><p>Yet most organisations hiring for "AI roles" are looking almost exclusively for engineers, data scientists, and product managers. The governance layer — the professionals who design oversight frameworks, conduct bias audits, define accountability structures — is chronically understaffed.</p><p><strong>This is the gap I intend to fill.</strong></p><p>My background — 10+ years designing and executing quality assurance frameworks for safety-critical systems — is directly transferable to AI governance. QA professionals are trained to ask the questions governance professionals need: What are the failure modes? Who is accountable when this breaks? What does the audit trail look like?</p><p>The UK has a real opportunity to lead on responsible AI. But leadership requires people who can build the governance infrastructure — not just the models.</p>`,
+    hashtags: '#AIGovernance #ResponsibleAI #UKPolicy #AIGP #ArtificialIntelligence'
+  },
+  post4: {
+    tag: 'tag-ai', tagLabel: 'Career & AI Strategy', date: 'January 2025',
+    title: 'From QA Test Lead to AI Governance Professional: My Career Transition Thesis',
+    body: `<p>I've spent 10+ years asking two questions professionally: <strong>"Is this system doing what it's supposed to do?"</strong> and <strong>"Who is accountable if it isn't?"</strong></p><p>At the Bank of England, those questions protected the UK's real-time gross settlement system. At Hinkley Point C, they underpinned nuclear safety. At Vodafone, they ensured platform reliability for millions.</p><p>Now I'm asking those same questions about AI — and the answers matter more than ever.</p><p>Here is my thesis: <strong>experienced QA professionals are among the most naturally suited people to lead AI governance</strong>. Not because we understand the maths of transformer models, but because we understand how to build systematic challenge into processes that have a natural tendency toward overconfidence.</p><p>AI governance requires people who can:</p><p>— Design model validation frameworks<br/>— Identify bias and edge cases before they reach production<br/>— Create auditable evidence trails for regulators<br/>— Translate technical risk into non-technical accountability<br/>— Build cultures that challenge automated outputs, not defer to them</p><p>That is, precisely, a QA professional's job description — applied to a new domain.</p><p>I am pursuing the <strong>AI Governance Professional (AIGP) certification</strong>, and I hold the ISTQB® CT-GenAI certification — making me one of the UK's first specialists formally certified in both testing AI systems and governing them. This is not a pivot. It's a natural evolution.</p>`,
+    hashtags: '#AIGP #AIGovernance #CareerTransition #ResponsibleAI #QualityAssurance'
+  },
+  post5: {
+    tag: 'tag-qa', tagLabel: 'AI Testing', date: 'December 2024',
+    title: "LLM Validation Is Not Like Any Testing You've Done Before",
+    body: `<p>Traditional software testing rests on a foundational assumption: <strong>determinism</strong>.</p><p>You give the system an input. You expect a defined output. If the output doesn't match the specification, it's a defect. You log it. You fix it. You retest.</p><p>Large Language Models break that assumption entirely. Ask the same question twice, and you may get two meaningfully different answers — both technically correct, both within acceptable parameters, but different. That's not a defect. That's the nature of probabilistic language generation.</p><p>As one of the UK's first holders of the <strong>ISTQB® CT-GenAI certification</strong>, here are three principles I've developed:</p><p><strong>1. Test for behaviour, not exact output.</strong> Define ranges of acceptable responses. Use semantic similarity metrics, not string matching.</p><p><strong>2. Adversarial and boundary testing becomes central.</strong> Prompt injection, jailbreaking, edge-case inputs — LLMs fail at the boundaries, and that's precisely where testing must focus.</p><p><strong>3. Bias detection requires structured, diverse test suites.</strong> Demographic diversity in test design is not optional — it's foundational.</p><p>The testing profession is at an inflection point. The testers who understand that shift will be invaluable.</p>`,
+    hashtags: '#LLMTesting #GenAI #SoftwareTesting #AIQuality #ISTQB'
+  },
+  post6: {
+    tag: 'tag-gov', tagLabel: 'Model Risk', date: 'December 2024',
+    title: 'Financial Regulators Are Coming for AI — Are Banks Ready?',
+    body: `<p>I've spent over two years at the Bank of England, managing assurance across CHAPS — the UK's real-time gross settlement system, processing hundreds of billions of pounds daily. Model risk is not an abstract concept in that environment. It's an existential one.</p><p>The FCA's consultation on AI in financial services, the PRA's model risk management principles (SS1/23), and the Bank of England's own emerging thinking on AI governance all point in the same direction: <strong>regulators are getting serious about AI, and the clock is ticking.</strong></p><p><strong>Most financial institutions are ahead on AI adoption and behind on AI governance.</strong> The pressure to deploy AI-driven credit decisioning, fraud detection, and risk modelling has outpaced the development of robust oversight frameworks.</p><p>The questions regulators will ask are remarkably similar to the questions we ask in QA:</p><p>— How do you know the model is doing what you think it's doing?<br/>— What happens when it encounters a scenario outside its training distribution?<br/>— Who approved this model for production, and what evidence was reviewed?<br/>— What is your process for identifying model drift?<br/>— How do you ensure the model isn't perpetuating discriminatory outcomes?</p><p>These aren't technology questions. They're governance questions. The intersection of QA rigour and AI governance is exactly where I intend to operate.</p>`,
+    hashtags: '#ModelRisk #AIGovernance #FinancialServices #FCA #ResponsibleAI'
+  }
+};
+
+function openModal(id) {
+  const post = posts[id];
+  document.getElementById('modal-inner').innerHTML = `
+    <div class="modal-tag"><span class="blog-tag ${post.tag}">${post.tagLabel}</span></div>
+    <h2>${post.title}</h2>
+    <div class="modal-meta">${post.date} · Vijay Harish Sundar</div>
+    <div class="modal-body">${post.body}</div>
+    <div class="modal-hashtags">${post.hashtags.split(' ').map(h => `<span class="hashtag">${h}</span>`).join('')}</div>
+  `;
+  document.getElementById('modal-overlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeModal() {
+  document.getElementById('modal-overlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
+function closeModalOnOverlay(e) {
+  if (e.target === document.getElementById('modal-overlay')) closeModal();
+}
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.1 });
+document.querySelectorAll('.timeline-item, .cert-card, .blog-card').forEach(el => {
+  el.classList.add('reveal');
+  observer.observe(el);
+});
+</script>
+</body>
+</html>
