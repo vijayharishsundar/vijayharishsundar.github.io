@@ -1,13 +1,11 @@
-# vijayharishsundar.github.io
-Personal portfolio &amp; thought leadership site — QA Test Lead, AI Testing Specialist &amp; AIGP Candidate
 # Vijay Harish Sundar — Portfolio Website
 
 Personal portfolio and thought leadership platform for Vijay Harish Sundar — 
 SC Cleared QA Test Lead, ISTQB® CT-GenAI Certified AI Testing Specialist, 
 and AI Governance Professional (AIGP) candidate based in London, UK.
 
-## Live Site
-🌐 [vijayharishsundar.github.io](https://vijayharishsundar.github.io)
+## 🌐 Live Site
+👉 [vijayharishsundar.github.io](https://vijayharishsundar.github.io)
 
 ## About This Site
 Built as a single-page portfolio to showcase:
@@ -17,7 +15,7 @@ Built as a single-page portfolio to showcase:
 
 ## Topics Covered in Articles
 - AI Governance & Model Risk
-- Responsible AI in UK Public Services & Financial Institutions  
+- Responsible AI in UK Public Services & Financial Institutions
 - Autonomous Vehicle Safety & Edge Case Testing
 - LLM Validation & GenAI Testing
 - QA → AI Governance Career Strategy
@@ -26,5 +24,5 @@ Built as a single-page portfolio to showcase:
 Pure HTML/CSS/JS — no frameworks, no dependencies, no build step.
 
 ## Contact
-📧 vijayharishsundar@hotmail.com  
+📧 vijayharishsundar@hotmail.com
 🔗 [LinkedIn](https://uk.linkedin.com/in/vijayharishsundar)
